@@ -4,9 +4,7 @@
 
 class SparklesContainer extends THREE.Mesh {
 
-    constructor( gui ) {
-
-        //this.items = [];
+    constructor() {
 
         const nbItems = 1600;
 
@@ -17,8 +15,6 @@ class SparklesContainer extends THREE.Mesh {
         const progress = [];
         const colors = [];
         const orientations = [];
-        const rVector = new THREE.Vector3();
-        const rotations = [];
 
         const vertices = new Float32Array( [
             -3.0, -5.0,  0.0,
@@ -37,7 +33,7 @@ class SparklesContainer extends THREE.Mesh {
 
             // offsets
             const x = Math.random() * 2800 - 1400;
-            const y = 800;
+            const y = d;
             const z = Math.random() * 4000 - 2000;
             offsets.push( x, y, z );
 
@@ -51,9 +47,6 @@ class SparklesContainer extends THREE.Mesh {
 
             speed[i] = ( 1.5 + Math.random() * 3 ) / d;
             progress[i] = Math.random() * .9;
-
-            rVector.set(speed[i] * d * .07, speed[i] * d * .06, speed[i] * d * .05);
-            rotations[i] = rVector;
         }
 
         // geo
@@ -92,7 +85,6 @@ class SparklesContainer extends THREE.Mesh {
         this.updateMatrix();
 
         this.speed = speed;
-        this.rotations = rotations;
         this.lastTime = 0;
 
         this.attProgress = this.geometry.attributes.progress;
